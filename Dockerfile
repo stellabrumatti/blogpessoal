@@ -7,6 +7,9 @@ COPY .mvn .mvn
 COPY pom.xml .
 COPY src src
 
+# Garante que Maven use UTF-8
+ENV MAVEN_OPTS="-Dfile.encoding=UTF-8"
+
 RUN chmod -R 777 ./mvnw
 
 RUN ./mvnw install -DskipTests
